@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+body {
+    --bs-body-font-family: "Roboto", serif;
+    --bs-body-color: #000000;
+}
+
+textarea {
+    resize: none;
+}
+
+iframe {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.bg-primary-light {
+    background-color: var(--bs-primary-light);
+}

@@ -1,0 +1,11 @@
+{
+  "name": "paddy-rice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sync": "browser-sync start -p 'paddyrice-monitoring.loc' --files 'assets/css/*.css' '**/*.php'"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

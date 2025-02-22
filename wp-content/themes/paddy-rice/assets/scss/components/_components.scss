@@ -1,0 +1,235 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn {
+    --bs-btn-padding-x: 3rem;
+    --bs-btn-padding-y: 15px;
+    --bs-btn-font-size: 1rem;
+    font-weight: 500;
+    --bs-btn-border-radius: 30px;
+    --bs-btn-line-height: 1.334;
+}
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-yellow);
+    --bs-btn-hover-border-color: var(--bs-yellow);
+    --bs-btn-active-bg: var(--bs-yellow);
+    --bs-btn-active-border-color: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+// .btn-secondary {
+//     --bs-btn-bg: var(--bs-brown);
+//     --bs-btn-border-color: var(--bs-brown);
+//     --bs-btn-hover-bg: rgba(var(--bs-brown-rgb), 0.6);
+//     --bs-btn-hover-border-color: rgba(var(--bs-brown-rgb), 0.6);
+//     --bs-btn-active-bg: rgba(var(--bs-brown-rgb), 0.6);
+//     --bs-btn-active-border-color: rgba(var(--bs-brown-rgb), 0.6);
+//     --bs-btn-disabled-bg: var(--bs-brown);
+//     --bs-btn-disabled-border-color: var(--bs-brown);
+// }
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+    --bs-btn-active-bg: var(--bs-primary);
+    --bs-btn-active-border-color: var(--bs-primary);
+    --bs-btn-disabled-color: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.btn-white {
+    --bs-btn-bg: #ffffff;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-bg: var(--bs-primary-dark);
+    --bs-btn-hover-border-color: var(--bs-primary-dark);
+    --bs-btn-active-bg: var(--bs-primary-dark);
+    --bs-btn-active-border-color: var(--bs-primary-dark);
+    --bs-btn-disabled-bg: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+    
+    &:hover {
+        --bs-btn-color: #ffffff;
+
+        img {
+            filter: brightness(0) invert(1);
+        }
+    }
+}
+
+.btn-sm {
+    --bs-btn-padding-y: 0.5rem;
+    --bs-btn-padding-x: 1.25rem;
+    --bs-btn-font-size: 15px;
+    --bs-btn-border-radius: 45px;
+    --bs-btn-line-height: 1.067;
+}
+
+.form-control,
+.form-select,
+.form-check-input {
+    &:focus {
+        border-color: var(--bs-primary-light);
+        box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .2);
+    }
+}
+
+.form-check-input {
+    &:checked {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+    }
+}
+
+.content-section-row {
+    position: relative;
+}
+
+.bg-img-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &._object-top img {
+        object-position: top;
+    }
+
+    &._object-right img {
+        object-position: right;
+    }
+
+    &._object-bottom img {
+        object-position: bottom;
+    }
+
+    &._object-left img {
+        object-position: left;
+    }
+
+    &+div {
+        position: relative;
+        z-index: 2;
+    }
+
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
+    }
+}
+
+.container-limited {
+    max-width: 1920px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+[class*="overlay-shade-"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-shade-dark {
+    background-color: #000;
+}
+
+.opacity-1 {
+    opacity: .1;
+}
+
+.opacity-3 {
+    opacity: .3;
+}
+
+@media only screen and (min-width: 1300px) {
+
+}
+
+@media only screen and (min-width: 1400px) {
+    .container {
+        max-width: 1254px;
+    }
+
+    .container-lg {
+        max-width: 1360px;
+    }
+}
+
+.img-scale-hover {
+    overflow: hidden;
+
+    img {
+        @include scale(1, 1);
+        @include transition(1s);
+    }
+    
+    &:hover {
+        img {
+            @include scale(1.15, 1.15);
+        }
+    }
+}
+
+.form-theme {
+    @include input-placeholder(rgba(95, 95, 95, .5));
+
+    .form-control,
+    .form-select,
+    .form-check-input {
+        font-size: 14px;
+        line-height: 1.6;
+        --bs-border-radius: 5px;
+        padding: 12px 1.5rem;
+        --bs-border-color: #000;
+
+        &:focus {
+            border-color: var(--bs-primary-light);
+            box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .2);
+        }
+    }
+
+    label {
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-bottom: 14px;
+        line-height: 1.6;
+        font-weight: 600;
+    }
+
+    .required {
+        color: #D95D34;
+    }
+
+    textarea {
+        height: 264px;
+    }
+
+    .btn-submit {
+        font-size: 15px;
+        text-transform: uppercase;
+        line-height: 1.6;
+        --bs-btn-padding-y: 17px;
+        width: 100%;
+        margin-top: 25px;
+    }
+}

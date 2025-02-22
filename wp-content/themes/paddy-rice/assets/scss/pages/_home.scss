@@ -1,0 +1,597 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.home-banner {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    height: 650px;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile-banner-slider {
+        .banner-wrapper {
+
+            .banner-item {
+                position: relative;
+                display: flex;
+                width: 100%;
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: 100%;
+                    float: left;
+                }
+
+                .content-service {
+                    float: left;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 37px 40px 80px;
+                    color: #fff;
+                    width: 100%;
+                    gap: 35px;
+                    align-items: center;
+
+                    .btn {
+                        display: flex;
+                        gap: 6px;
+                        --bs-btn-font-size: 1rem;
+                        @include transition(var(--transition-sec));
+
+                        &:hover {
+                            img {
+                                filter: brightness(0) invert(1);
+                            }
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        .service-heading {
+                            font-size: 45px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .banner-wrapper {
+        --transition-sec: .5s;
+        transform-style: preserve-3d;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 45.106%;
+            float: left;
+        }
+    }
+
+    .banner-item {
+        position: relative;
+        width: 33.33333333%;
+        transform: translate3d(0, 0, 0);
+        @include transition(var(--transition-sec));
+
+        .service-item-bg {
+            width: 100%;
+            --bs-aspect-ratio: 135.32%;
+            @include transition(var(--transition-sec));
+
+            .bg-img-fill {
+                width: 150%;
+
+                &.on-center {
+                    left: -1px;
+                    width: calc(100% + 2px);
+                    @include transition(var(--transition-sec));
+                }
+
+                &._object-left {
+                    left: -50%;
+                }
+            }
+        }
+
+        .content-service {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 37px 65px 80px;
+            color: #ffffff;
+            transform: translate3d(0, 0, 0);
+            @include transition(var(--transition-sec));
+
+            .btn {
+                display: flex;
+                gap: 6px;
+                --bs-btn-font-size: 1rem;
+                transform: translateY(200px);
+                @include transition(var(--transition-sec));
+
+                &:hover {
+                    img {
+                        filter: brightness(0) invert(1);
+                    }
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .service-heading {
+                    font-size: 45px;
+                }
+            }
+
+            @media only screen and (max-width: 1199px) {
+                padding: 37px 40px 80px 20px;
+            }
+        }
+
+        &:nth-child(2) {
+            transform: translate3d(0, 0, 10px);
+        }
+
+        &:last-child .content-service {
+            width: 150%;
+        }
+
+        &:first-child:hover, &:first-child:not(:has(~ .banner-item:hover)) {
+            .content-service {
+                // transform: translate3d(50%, 0, 10px);
+                transform: translate3d(33.33%, 0, 10px);
+                width: 150%;
+
+                @media only screen and (max-width: 991px) {
+                    padding: 37px 40px 80px 20px;
+                }
+
+                .btn {
+                    transform: translateY(0);
+                }
+            }
+
+            ~ .banner-item {
+                transform: translate3d(50%, 0, 10px);
+            }
+
+            ~ .banner-item:nth-child(2) {
+                transform: translate3d(50%, 0, 20px);
+            }
+        }
+
+        &:hover {
+            .content-service {
+                .btn {
+                    transform: translateY(0);
+                }
+            }
+
+            &:nth-child(2) {
+                transform: translate3d(0, 0, 20px);
+
+                .service-item-bg {
+                    .bg-img-fill.on-center {
+                        left: -25%;
+                        width: 150%;
+                    }
+                }
+
+                .content-service {
+                    transform: translate3d(25%, 0, 10px);
+                }
+            }
+
+            &:last-child {
+                .content-service {
+                    width: 150%;
+                }
+            }
+        }
+
+        &:has(~ .banner-item:last-child:hover) {
+            transform: translate3d(-50%, 0, 10px);
+        }
+
+        &:has(~ .banner-item:nth-child(2):hover) {
+            .banner-item:first-child {
+                transform: translate3d(-100%, 0, 20px);
+            }
+
+            ~ .banner-item:last-child {
+                transform: translate3d(50%, 0, 10px);
+            }
+        }
+
+        &:has(+.banner-item:nth-child(2):hover) {
+            transform: translate3d(-50%, 0, 20px);
+        }
+    }
+}
+
+
+// Services Slider
+.services-slider-container  {
+    position: relative;
+
+    .swiper-button-next, .swiper-button-prev {
+        width: 52px;
+        height: 52px;
+        background-color: #000000;
+        border-radius: 100%;
+        color: #fff;
+        font-size: 25px;
+        --swiper-navigation-sides-offset: 2%;
+
+        &:after, &.swiper-button-disabled {
+            display: none;
+        }
+    }
+
+    .swiper-button-prev {
+        --swiper-navigation-sides-offset: -72px;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .swiper-button-next, .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+            --swiper-navigation-sides-offset: 24px;
+
+            i {
+                font-size: 16px;
+            }
+        }
+
+        .swiper-button-prev {
+            --swiper-navigation-sides-offset: -24px;
+        }
+    }
+
+    @media only screen and (max-width: 991px) {
+        .swiper-button-next {
+            --swiper-navigation-sides-offset: 56px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .swiper-button-next {
+            --swiper-navigation-sides-offset: 36px;
+        }
+    }
+
+    @media only screen and (max-width: 575px) {
+        overflow: hidden;
+        margin: 0 -12px;
+        padding: 0 12%;
+
+        .swiper-button-next {
+            --swiper-navigation-sides-offset: -20px;
+        }
+
+        .swiper-button-prev {
+            --swiper-navigation-sides-offset: 24px;
+            margin-top: 12px;
+        }
+    }
+}
+
+.services-slider {
+    @media only screen and (max-width: 575px) {
+        width: 100%;
+        overflow: visible;
+
+        .swiper-slide {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 576px) {
+        width: calc(100% + (100vw - 516px) / 2 - 9px);
+
+        .swiper-slide {
+            width: calc(45% - 9px);
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: calc(100% + (100vw - 696px) / 2 - 9px);
+
+        .swiper-slide {
+            width: calc(45% - 9px);
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        width: calc(100% + (100vw - 936px) / 2 - 9px);
+
+        .swiper-slide {
+            width: calc(31.25% - 9px);
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        width: calc(100% + (100vw - 1116px) / 2 - 9px);
+        
+        .swiper-slide {
+            width: calc(31% - 9px);
+        }
+    }
+
+    @media only screen and (min-width: 1400px) {
+        width: calc(100% + (100vw - 1247px) / 2 - 9px);
+
+        .swiper-slide {
+            width: calc(31% - 9px);
+        }
+    }
+}
+
+.service-slide-image {
+    --bs-aspect-ratio: 120%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+// Team 
+.team-slider-container {
+    --team-transition-sec: .3s;
+
+    @media only screen and (max-width: 575px) {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    @media only screen and (max-width: 479px) {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+.profile-info, .card-bio {
+    color: #fff;
+
+    .name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    .position {
+        font-size: 13px;
+        line-height: 1.2;
+    }
+}
+
+.profile-info {
+    padding: 31px 26px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    @include transition(var(--team-transition-sec));
+}
+
+.card-bio {
+    padding: 53px 30px;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    @include transition(var(--team-transition-sec));
+
+    .position {
+        display: block;
+        font-size: 15px;
+        margin-bottom: 32px; 
+    }
+
+    .bio-details {
+        font-size: 25px;
+        line-height: 1.2;
+
+        @media only screen and (max-width: 1199px) {
+            font-size: 1.25rem;
+        }
+
+        @media only screen and (max-width: 992px) {
+            font-size: 1.15rem;
+        }
+
+        @media only screen and (max-width: 767px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.team-slider {
+    overflow: visible;
+
+    .swiper-slide {
+        position: relative;
+        margin-right: 20px;
+        width: 31%;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .card-profile-slide {
+            --bs-aspect-ratio: 120%;
+            border-radius: 10px;
+            overflow: hidden;
+
+            .bg-img-fill:after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, #2B2B2B 100%);
+                backdrop-filter: blur(0);
+                @include transition(var(--team-transition-sec));
+            }
+        }
+
+        &:hover {
+            .card-profile-slide .bg-img-fill:after {
+                background: transparent;
+                background-color: rgba(203, 158, 103, .74);
+                backdrop-filter: blur(27px);
+            }
+
+            .profile-info {
+                opacity: 0;
+            }
+
+            .card-bio {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        @media only screen and (max-width: 992px) {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: 767px) {
+            width: 45%;
+        }
+
+        @media only screen and (max-width: 575px) {
+            width: 47.8%;
+
+            .card-bio {
+                padding: 35px 25px;
+
+                .position {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 479px) {
+            width: 100%;
+        }
+    }
+}
+
+// Boxed Banner
+.boxed-banner {
+    position: relative;
+    display: flex; 
+    align-items: flex-end;   
+    width: 100%;
+    padding: 26px 50px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @media only screen and (max-width: 767px) {
+        padding: 26px 30px;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 54.2%;
+        float: left;
+
+        @media only screen and (max-width: 992px) {
+            padding-top: 75%;
+        }
+
+        @media only screen and (max-width: 767px) {
+            padding-top: 75%;
+        }
+
+        @media only screen and (max-width: 479px) {
+            padding-top: 100%;
+        }
+    }
+
+    .overlay-dark {
+        &:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 58%);
+            opacity: .4;
+
+            @media only screen and (max-width: 479px) {
+                background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+                opacity: .7;
+            }
+        }
+    }
+
+    .boxed-content-desc {
+        max-width: 628px;
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// CTA Brochures
+.brochures-cover-layers {
+    display: inline-flex;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 70px;
+    padding-bottom: 39px;
+    overflow: hidden;
+}
+.brochures-covers {
+    position: relative;
+    z-index: 1;
+    max-width: 340px;
+    transform: translateY(21%);
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+
+        &.top-cover {
+            transform: rotate(-5.67deg);
+            box-shadow: 10px 31px 28px rgba(0, 0, 0, .55);
+        }
+
+        &.under-cover {
+            position: absolute;
+            top: 36px;
+            right: -54px;
+            z-index: -1;
+            transform: rotate(2.65deg);
+        }
+    }
+}
+
+.cta-mw-desc {
+    max-width: 373px;
+    font-size: 15px;
+}
+
+.cta-artwork-bottom-right {
+    margin-bottom: -8%;
+
+    @media only screen and (max-width: 767px) {
+        margin-bottom: -24%;
+        margin-right: -8%;
+    }
+}

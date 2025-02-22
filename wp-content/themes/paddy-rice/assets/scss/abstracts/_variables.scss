@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+:root {
+    --bs-primary: #355B25;
+    --bs-primary-rgb: 53, 91, 37;
+    --bs-primary-dark: #4a7f34;
+    --bs-primary-light: #6D9F3E;
+
+
+    --bs-secondary: #6c757d;
+    --bs-secondary-rgb: 108,117,125;
+
+    --bs-yellow: #F1C40F;
+    --bs-yellow-rgb: 241, 196, 15;
+
+    --bs-gray-500: #5F5F5F;
+
+    --bs-primary-bg-subtle: rgba(var(--bs-primary-rgb), 0.3);
+    --bs-primary-border-subtle: rgba(var(--bs-primary-rgb), 0.6);
+
+    --bs-link-hover-color-rgb: rgba(var(--bs-brown-rgb), 0.6);
+    --bs-border-color: #000000;
+}

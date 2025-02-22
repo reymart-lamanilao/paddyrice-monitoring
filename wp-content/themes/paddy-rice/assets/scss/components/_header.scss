@@ -1,0 +1,313 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.navbar-fixed-offset {
+    height: 80px;
+
+    @media (min-width: 992px) {
+        height: 120px;
+    }
+}
+
+.navbar {
+    --bs-navbar-color: #000000;
+    --bs-navbar-hover-color: var(--bs-brown);
+    --bs-navbar-active-color: var(--bs-brown);
+    --bs-nav-link-font-size: 1rem;
+    --navbar-toggler-width: 36px;
+    --navbar-toggler-height: 24px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: #ffffff;
+
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.15);
+
+    .logo, .custom-logo-link {
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 131px;
+
+            @media (min-width: 992px) {
+                max-width: 200px;
+            }
+        }
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+
+    .social-links  {
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            font-size: 1.5rem;
+            color: var(--bs-primary);
+
+            &:hover {
+                color: var(--bs-secondary);
+            }
+        }
+    }
+
+    .nav-link-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--bs-primary);
+        color: #ffffff;
+        border-radius: 50px;
+        padding: 8px 30px 8px 30px;
+
+        &:hover, &:active {
+            background-color: var(--bs-secondary);
+        }
+    }
+
+    .navbar-toggler, .navbar-toggler:focus {
+        border: 0;
+        box-shadow: none;
+        position: relative;
+        cursor:pointer;
+        width: var(--navbar-toggler-width);
+        height: var(--navbar-toggler-height);
+        color: var(--bs-primary);
+    }
+
+    /* menu start */
+    .menu-bar {
+        position: absolute;
+        background-color: var(--bs-primary);
+        width: var(--navbar-toggler-width);
+        height: 2px;
+        margin-top: 11px;
+        inset: 0;
+    }
+
+    .animate.menu-bar {
+      animation-name: menu-menu;
+      animation-duration: 0.3s;
+    }
+
+    @keyframes menu-menu {
+      0% {
+        width:0px;
+        height:0px;
+      }
+      50% {
+        width:0px;
+        height:0px;
+      }
+      51%{
+        position: absolute;
+        background-color: #ffffff;
+        width: var(--navbar-toggler-width);
+        height: 2px;
+      }
+    }
+
+    .menu-bar:after {
+        content: "";
+        position: absolute;
+        background-color: var(--bs-primary);
+        width: var(--navbar-toggler-width);
+        height: 2px;
+        margin-top: -11px;
+        inset: 0;;
+    }
+
+    .animate.menu-bar:after {
+      animation-name: menu-after;
+      animation-duration: 0.3s;
+    }
+
+    @keyframes menu-after {
+      0% {
+      transform: rotate(-45deg);
+      margin-top:0px;
+      }
+      50% {
+      transform: rotate(0deg);
+      margin-top:0px;
+      }
+      100%{
+        transform: rotate(0deg);
+        margin-top: -11px;
+      } 
+    }
+
+    .menu-bar:before {
+        content: "";
+        position: absolute;
+        background-color: var(--bs-primary);
+        width: var(--navbar-toggler-width);
+        height: 2px;
+        margin-top: 11px;
+        inset: 0;
+    }
+
+    .animate.menu-bar:before{
+      animation-name: menu-before;
+      animation-duration: 0.3s;
+    }
+    @keyframes menu-before {
+      0% {
+      transform: rotate(45deg);
+      margin-top:0px;
+      }
+      50% {
+      transform: rotate(0deg);
+      margin-top:0px;
+      }
+      100%{
+        transform: rotate(0deg);
+        margin-top:11px;
+      }
+    }
+    /* menu end */
+
+    /* close start */
+    .menu-close {
+        position: absolute;
+        inset: 0;
+        margin-top: 11px;
+        margin-left: 0;
+    }
+
+    .menu-close.animate{
+        animation-name: close-close;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes close-close {
+        0% {
+            position: absolute;
+            background-color: #ffffff;
+            width: var(--navbar-toggler-width);
+            height: 2px;
+            margin-top: 11px;
+        }
+        50% {
+            display:none;
+            width:var(--navbar-toggler-width);
+            height:2px;
+        }
+        100%{
+            width:0px;
+            height:0px;
+        }
+    }
+
+    .menu-close:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--bs-primary);
+        width: var(--navbar-toggler-width);
+        height: 2px;
+        transform: rotate(45deg);
+    }
+
+    .animate.menu-close:after {
+        animation-name: close-after;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes close-after {
+        0% {
+            transform: rotate(0deg);
+            margin-top: 11px;
+        }
+        50% {
+            transform: rotate(0deg);
+            margin-top: 0px;
+        }
+        100%{
+            transform: rotate(45deg);
+        }
+    }
+
+    .menu-close:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--bs-primary);
+        width: var(--navbar-toggler-width);
+        height: 2px;
+        transform: rotate(-45deg);
+    }
+
+    .animate.menu-close:before {
+        animation-name: close-before;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes close-before {
+        0% {
+            transform: rotate(0deg);
+            margin-top:-11px;
+        }
+        50% {
+            transform: rotate(0deg);
+            margin-top:0px;
+        }
+        100%{
+            transform: rotate(-45deg);
+        }
+    }
+    /* close end */
+
+    @media only screen and (min-width: 992px) {
+        height: 120px;
+
+        &.navbar-expand-lg {
+            .navbar-nav {
+                .nav-item {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        &.navbar-expand-lg {
+            .navbar-nav {
+                .nav-item {
+                    margin-left: 3rem;
+                }
+            }
+        }
+    }
+}
+
+
+.admin-bar {
+    header {
+        .navbar {
+            top: 46px;
+
+            @media (min-width: 783px) {
+                top: 32px;
+            }
+        }
+
+        @media (max-width: 782px) {
+            &.sticky {
+                .navbar {
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+   

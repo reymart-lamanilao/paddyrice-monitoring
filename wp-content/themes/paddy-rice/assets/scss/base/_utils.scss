@@ -1,0 +1,125 @@
+.text-underline {
+    text-decoration: underline;
+}
+
+.fw-thin {
+    font-weight: 100 !important;
+}
+
+.fw-light {
+    font-weight: 300 !important;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+}
+
+.fw-semibold {
+    font-weight: 600 !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fw-extrabold {
+    font-weight: 800 !important;
+}
+
+.fw-black {
+    font-weight: 900 !important;
+}
+
+.fs-italic {
+    font-style: italic;
+}
+
+.anchor-overlay {
+    @include inset(0);
+    position: absolute;
+    z-index: 3;
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.fs-18px {
+    font-size: 18px;
+}
+
+.fs-15px {
+    font-size: 15px;
+}
+
+.fs-14px {
+    // font-size: 14px;
+}
+
+.lh-120 {
+    line-height: 120%;
+}
+
+.lh-110 {
+    line-height: 110%;
+}
+
+.rounded {
+    --bs-border-radius: 10px;
+}
+
+.text-orange-theme {
+    color: var(--bs-orange-theme) !important;
+}
+
+.text-brown {
+    color: var(--bs-brown) !important;
+}
+
+.text-gray {
+    color: var(--bs-gray-500) !important;
+}
+
+.bg-brown {
+    background-color: var(--bs-brown) !important;
+}
+
+.mw-552 {
+    max-width: 552px;
+}
+
+.g-lg-40, .gx-lg-40 {
+    --bs-gutter-x: 2.25rem;
+}
+
+.g-lg-40, .gy-lg-40 {
+    --bs-gutter-y: 2.25rem;
+}
+
+.px-28px {
+    padding-right: 28px !important;
+    padding-left: 28px !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    .fs-26px {
+        font-size: 26px !important;
+    }
+
+    .g-lg-40, .gx-lg-40 {
+        --bs-gutter-x: 2.25rem;
+    }
+
+    .g-lg-40, .gy-lg-40 {
+        --bs-gutter-y: 2.25rem;
+    }
+
+    .px-28px {
+        padding-right: 28px !important;
+        padding-left: 28px !important;
+    }
+}
