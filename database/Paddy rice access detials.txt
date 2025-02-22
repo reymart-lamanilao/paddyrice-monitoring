@@ -1,0 +1,8 @@
+Database Details
+Database Name: paddyrice_monitoring
+Username: paddyriceadmin
+Password: Ir8OvnCLTEmYNitY
+
+WP Login Details
+Username: admin
+Password: y&gyIvT)yFR9S8c5Mb
