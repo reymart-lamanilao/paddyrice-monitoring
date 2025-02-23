@@ -75,7 +75,7 @@ get_header();
 									</div>
 								</div>
 								<div class="buttons">
-									<button type="button" class="calculte btn btn-secondary">Read</button>
+									<button type="button" class="startreading btn btn-secondary">Read</button>
 									<button type="button" class="next btn btn-primary">Next</button>
 								</div>
 							</div>

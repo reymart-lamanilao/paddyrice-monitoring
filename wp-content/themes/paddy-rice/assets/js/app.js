@@ -166,35 +166,35 @@ var _step_readings = function () {
         });
 
         // Special validation for email
-        const emailInput = document.getElementById('email');
-        emailInput.addEventListener('blur', () => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
-                emailInput.classList.add('error');
-            } else {
-                emailInput.classList.remove('error');
-            }
-        });
+        // const emailInput = document.getElementById('email');
+        // emailInput.addEventListener('blur', () => {
+        //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //     if (!emailRegex.test(emailInput.value)) {
+        //         emailInput.classList.add('error');
+        //     } else {
+        //         emailInput.classList.remove('error');
+        //     }
+        // });
 
         // Phone number validation
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', (e) => {
-            // Remove any non-numeric characters
-            let value = e.target.value.replace(/\D/g, '');
+        // const phoneInput = document.getElementById('phone');
+        // phoneInput.addEventListener('input', (e) => {
+        //     // Remove any non-numeric characters
+        //     let value = e.target.value.replace(/\D/g, '');
             
-            // Format the number
-            if (value.length > 0) {
-                if (value.length <= 3) {
-                    value = value;
-                } else if (value.length <= 6) {
-                    value = value.slice(0, 3) + '-' + value.slice(3);
-                } else {
-                    value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
-                }
-            }
+        //     // Format the number
+        //     if (value.length > 0) {
+        //         if (value.length <= 3) {
+        //             value = value;
+        //         } else if (value.length <= 6) {
+        //             value = value.slice(0, 3) + '-' + value.slice(3);
+        //         } else {
+        //             value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+        //         }
+        //     }
             
-            e.target.value = value;
-        });
+        //     e.target.value = value;
+        // });
 
         // Initialize form
         showStep(currentStep);

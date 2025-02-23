@@ -152,6 +152,11 @@ function paddy_rice_scripts() {
 	$theme_js_ver  = date("ymd-Gis", filemtime(  get_stylesheet_directory() . '/assets/js/app.js' ));
   	wp_enqueue_script('theme-app-js', get_theme_file_uri( '/assets/js/app.js' ), array('jquery'), $theme_js_ver, true);
 
+	wp_enqueue_script('paddyrice-readings-js', get_template_directory_uri() . '/js/app-readings.js', array( 'jquery' ),1.9);
+	wp_localize_script( 'paddyrice-readings-js', 'wp_ajax', array(
+	   'ajaxurl' => admin_url( 'admin-ajax.php' )
+   ));
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -196,4 +201,51 @@ add_filter( 'nav_menu_link_attributes', function($atts) {
         $atts['class'] = "nav-link";
         return $atts;
 }, 100, 1 );
+
+// Example function to call the moisture prediction endpoint
+function get_predicted_moisture() {
+	$data_received = $_POST['some_data'];
+	$sensor_data = 1;
+    // $url = 'http://192.168.1.100:5000/api/predict_moisture'; // Use your laptop's IP here
+	$url = 'http://127.0.0.1:5000/api/predict_moisture';
+    $body = json_encode(array('sensor_data' => $data_received));
+    $args = array(
+        'body'        => $body,
+        'headers'     => array('Content-Type' => 'application/json'),
+        'timeout'     => 15,
+        'method'      => 'POST'
+    );
+    
+    $response = wp_remote_post($url, $args);
+    
+    if (is_wp_error($response)) {
+        // return 'Error: ' . $response->get_error_message();
+		$data = $response->get_error_message();
+		echo $data;
+    }
+    echo $response;
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+    // return isset($data['predicted_moisture']) ? $data['predicted_moisture'] : 'No moisture value returned';
+
+	echo json_encode(array('moist' => $data));
+	die();
+}
+
+function get_predicted_moisture2($sensor_data = null) {
+	echo json_encode(array('moist' => 10));
+	die();
+}
+
+// Example usage within a page template:
+function read_device_data() {
+	$sensor_data = array(50, 25, 60); // Replace with actual sensor data or form input
+	$moisture = get_predicted_moisture($sensor_data);
+	echo '<p>Predicted Moisture Content: ' . esc_html($moisture) . '</p>';
+
+	// echo json_encode($moisture);
+	die();
+}
+
+add_action( 'wp_ajax_get_predicted_moisture', 'get_predicted_moisture' );    
+add_action( 'wp_ajax_nopriv_get_predicted_moisture', 'get_predicted_moisture' );
 
